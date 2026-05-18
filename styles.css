@@ -1,0 +1,374 @@
+:root {
+  --bg: #f5efe4;
+  --bg-alt: #102a43;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-dark: rgba(255, 255, 255, 0.08);
+  --text: #17324d;
+  --text-light: #f4f8fb;
+  --muted: #4c647c;
+  --accent: #da8c37;
+  --accent-dark: #b86f1d;
+  --shadow: 0 20px 60px rgba(13, 31, 48, 0.18);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 1.5rem clamp(1.25rem, 2vw, 2.5rem) 3rem;
+  background:
+    linear-gradient(135deg, rgba(8, 29, 49, 0.82), rgba(21, 64, 99, 0.55)),
+    url("assets/hero-house.svg") center/cover no-repeat;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.site-nav,
+.hero-content,
+.section,
+.site-footer {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand,
+.nav-link {
+  padding: 0.5rem 0;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  font-weight: 600;
+}
+
+.hero-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 420px);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding: 3rem 0 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1,
+.section-heading h2,
+.about-layout h2 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.hero-copy h1 {
+  max-width: 11ch;
+  font-size: clamp(2.9rem, 7vw, 5.7rem);
+}
+
+.hero-text,
+.section-intro,
+.about-copy p,
+.contact-copy p,
+.service-card p,
+.hero-card p {
+  line-height: 1.7;
+}
+
+.hero-text {
+  max-width: 42rem;
+  margin: 1.25rem 0 0;
+  font-size: 1.05rem;
+  color: rgba(244, 248, 251, 0.88);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+  background: var(--accent-dark);
+}
+
+.button-secondary {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-card {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--surface-dark);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.hero-card h2 {
+  margin: 0.2rem 0 0.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.card-label {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 248, 251, 0.74);
+}
+
+.card-divider {
+  width: 100%;
+  height: 1px;
+  margin: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.owner-name {
+  margin: 0.2rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.section {
+  padding: clamp(4.5rem, 9vw, 7rem) 0;
+}
+
+.section-light {
+  color: var(--text);
+}
+
+.section-dark {
+  background: var(--bg-alt);
+  color: var(--text-light);
+}
+
+.section-heading {
+  max-width: 46rem;
+}
+
+.section-heading h2,
+.about-layout h2 {
+  font-size: clamp(2rem, 4.2vw, 3.35rem);
+}
+
+.service-grid,
+.contact-layout,
+.about-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.service-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.service-card,
+.contact-form,
+.contact-copy {
+  border-radius: var(--radius);
+}
+
+.service-card {
+  padding: 1.8rem;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1.25rem;
+}
+
+.about-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.about-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-copy p {
+  margin: 0;
+  color: rgba(244, 248, 251, 0.86);
+}
+
+.contact-layout {
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.contact-copy {
+  padding: 2rem;
+  background: #fff7ed;
+  box-shadow: var(--shadow);
+}
+
+.contact-copy h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.contact-copy p {
+  margin: 0.6rem 0 0;
+}
+
+.contact-form {
+  padding: 2rem;
+  background: #fff;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid #d6dfeb;
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  color: var(--text);
+  background: #fbfdff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(218, 140, 55, 0.35);
+  border-color: var(--accent);
+}
+
+.hidden-field {
+  position: absolute;
+  left: -9999px;
+}
+
+.site-footer {
+  padding: 1.5rem 1.25rem 2.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .hero-content,
+  .about-layout,
+  .contact-layout,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h1 {
+    max-width: 13ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 1rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    padding-top: 2rem;
+  }
+
+  .hero-copy h1 {
+    max-width: none;
+    font-size: clamp(2.6rem, 14vw, 4rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
