@@ -46,7 +46,7 @@ p:last-child { margin-bottom: 0; }
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 200;
+  z-index: 1000;
   background: var(--navy);
   transition: box-shadow var(--transition);
 }
@@ -393,6 +393,7 @@ p:last-child { margin-bottom: 0; }
   border: 1px solid var(--light-gray);
   box-shadow: var(--shadow-sm);
   margin-bottom: 1.25rem;
+  isolation: isolate;
   background: var(--light-gray);
 }
 .map-note {
@@ -502,7 +503,8 @@ p:last-child { margin-bottom: 0; }
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; }
   .nav-links a { display: block; padding: 0.6rem 0; font-size: 1rem; }
-  .nav-cta { width: 100%; justify-content: center; margin-top: 0.5rem; }
+  .nav-cta { display: inline-block; width: auto; margin-top: 0.5rem; padding: 0.55rem 1.1rem !important; }
+  .nav-links li:has(.nav-cta) { width: auto; }
   .nav-toggle { display: flex; }
 
   .about-layout,
@@ -519,4 +521,28 @@ p:last-child { margin-bottom: 0; }
   .services-grid { grid-template-columns: 1fr; }
   .stat { min-width: 100%; }
   .footer-inner { flex-direction: column; text-align: center; }
+
+  /* Remove frosted glass panel on mobile — darken overlay instead */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 18, 38, 0.82) 0%,
+      rgba(10, 18, 38, 0.75) 50%,
+      rgba(5, 10, 22, 0.88) 100%
+    );
+  }
+
+  .hero-content {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero h1,
+  .hero-sub,
+  .hero-eyebrow {
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  }
 }
