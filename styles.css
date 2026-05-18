@@ -1,15 +1,20 @@
 :root {
-  --bg: #f5efe4;
-  --bg-alt: #102a43;
-  --surface: rgba(255, 255, 255, 0.94);
-  --surface-dark: rgba(255, 255, 255, 0.08);
-  --text: #17324d;
-  --text-light: #f4f8fb;
-  --muted: #4c647c;
-  --accent: #da8c37;
-  --accent-dark: #b86f1d;
-  --shadow: 0 20px 60px rgba(13, 31, 48, 0.18);
-  --radius: 24px;
+  --bg: #0a1420;
+  --bg-alt: #101c2b;
+  --bg-soft: #162435;
+  --surface: #111f2f;
+  --surface-alt: #17283b;
+  --surface-light: #f2f0eb;
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #dbe6f1;
+  --text-light: #f4f7fa;
+  --text-dark: #102033;
+  --muted: #97a8bb;
+  --muted-dark: #4b5f75;
+  --accent: #b88a52;
+  --accent-dark: #9c7240;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --radius: 14px;
 }
 
 * {
@@ -41,7 +46,7 @@ img {
   min-height: 100vh;
   padding: 1.5rem clamp(1.25rem, 2vw, 2.5rem) 3rem;
   background:
-    linear-gradient(135deg, rgba(8, 29, 49, 0.82), rgba(21, 64, 99, 0.55)),
+    linear-gradient(135deg, rgba(5, 12, 19, 0.92), rgba(10, 24, 38, 0.78)),
     url("assets/hero-house.svg") center/cover no-repeat;
   color: var(--text-light);
   display: flex;
@@ -77,6 +82,7 @@ img {
 
 .nav-link {
   font-weight: 600;
+  color: rgba(219, 230, 241, 0.82);
 }
 
 .hero-content {
@@ -91,9 +97,9 @@ img {
 .eyebrow {
   margin: 0 0 0.9rem;
   color: var(--accent);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -105,8 +111,8 @@ img {
 }
 
 .hero-copy h1 {
-  max-width: 11ch;
-  font-size: clamp(2.9rem, 7vw, 5.7rem);
+  max-width: 12ch;
+  font-size: clamp(3rem, 7vw, 5.3rem);
 }
 
 .hero-text,
@@ -122,7 +128,25 @@ img {
   max-width: 42rem;
   margin: 1.25rem 0 0;
   font-size: 1.05rem;
-  color: rgba(244, 248, 251, 0.88);
+  color: rgba(219, 230, 241, 0.82);
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  list-style: none;
+}
+
+.hero-points li {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(219, 230, 241, 0.9);
+  font-size: 0.92rem;
+  border-radius: 999px;
 }
 
 .hero-actions {
@@ -137,14 +161,16 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 3.25rem;
-  padding: 0 1.4rem;
-  border-radius: 999px;
+  padding: 0 1.35rem;
+  border-radius: 10px;
   border: 1px solid transparent;
   font-weight: 700;
+  letter-spacing: 0.03em;
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .button:hover,
@@ -154,7 +180,7 @@ img {
 
 .button-primary {
   background: var(--accent);
-  color: #fff;
+  color: #f7f1e8;
 }
 
 .button-primary:hover,
@@ -163,16 +189,17 @@ img {
 }
 
 .button-secondary {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.18);
   color: var(--text-light);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(7, 16, 24, 0.4);
 }
 
 .hero-card {
   padding: 2rem;
   border-radius: var(--radius);
-  background: var(--surface-dark);
-  backdrop-filter: blur(10px);
+  background: rgba(9, 18, 29, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
   box-shadow: var(--shadow);
 }
 
@@ -187,14 +214,14 @@ img {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(244, 248, 251, 0.74);
+  color: rgba(219, 230, 241, 0.64);
 }
 
 .card-divider {
   width: 100%;
   height: 1px;
   margin: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .owner-name {
@@ -203,17 +230,45 @@ img {
   font-weight: 700;
 }
 
+.card-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.card-list div {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-list span {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(219, 230, 241, 0.58);
+}
+
+.card-list strong {
+  color: rgba(244, 248, 251, 0.94);
+}
+
 .section {
   padding: clamp(4.5rem, 9vw, 7rem) 0;
 }
 
 .section-light {
+  background: var(--bg-alt);
   color: var(--text);
 }
 
 .section-dark {
-  background: var(--bg-alt);
+  background: var(--bg-soft);
   color: var(--text-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .section-heading {
@@ -245,7 +300,8 @@ img {
 
 .service-card {
   padding: 1.8rem;
-  background: #fff;
+  background: var(--surface);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
 
@@ -253,6 +309,12 @@ img {
   margin-top: 0;
   margin-bottom: 0.85rem;
   font-size: 1.25rem;
+  color: #f4f7fa;
+}
+
+.service-card p,
+.section-intro {
+  color: var(--muted);
 }
 
 .about-layout {
@@ -267,7 +329,7 @@ img {
 
 .about-copy p {
   margin: 0;
-  color: rgba(244, 248, 251, 0.86);
+  color: rgba(219, 230, 241, 0.78);
 }
 
 .contact-layout {
@@ -278,7 +340,8 @@ img {
 
 .contact-copy {
   padding: 2rem;
-  background: #fff7ed;
+  background: var(--surface);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
 
@@ -286,15 +349,18 @@ img {
   margin-top: 0;
   margin-bottom: 0.8rem;
   font-size: 1.5rem;
+  color: #f4f7fa;
 }
 
 .contact-copy p {
   margin: 0.6rem 0 0;
+  color: var(--muted);
 }
 
 .contact-form {
   padding: 2rem;
-  background: #fff;
+  background: #ece7df;
+  color: var(--text-dark);
   box-shadow: var(--shadow);
   display: grid;
   gap: 0.9rem;
@@ -307,18 +373,22 @@ img {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  border: 1px solid #d6dfeb;
-  border-radius: 16px;
+  border: 1px solid #c9d0d8;
+  border-radius: 10px;
   padding: 0.95rem 1rem;
   font: inherit;
-  color: var(--text);
-  background: #fbfdff;
+  color: var(--text-dark);
+  background: #f8f5f1;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: 2px solid rgba(218, 140, 55, 0.35);
+  outline: 2px solid rgba(184, 138, 82, 0.28);
   border-color: var(--accent);
+}
+
+.contact-form .button-primary {
+  margin-top: 0.4rem;
 }
 
 .hidden-field {
@@ -330,6 +400,7 @@ img {
   padding: 1.5rem 1.25rem 2.5rem;
   color: var(--muted);
   text-align: center;
+  background: var(--bg);
 }
 
 @media (max-width: 960px) {
