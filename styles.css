@@ -367,7 +367,7 @@ p:last-child { margin-bottom: 0; }
    =========================== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 .service-card {
@@ -515,10 +515,10 @@ p:last-child { margin-bottom: 0; }
   .stat-sep { display: none; }
 
   .form-row { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
-  .services-grid { grid-template-columns: 1fr; }
   .stat { min-width: 100%; }
   .footer-inner { flex-direction: column; text-align: center; }
 
