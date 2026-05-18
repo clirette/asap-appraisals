@@ -14,10 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -190,7 +186,9 @@
             for your specific location.
           </p>
         </div>
-        <div id="service-map" class="service-map"></div>
+        <div id="service-map" class="service-map">
+          <img src="assets/parish-map.svg" alt="Map showing Terrebonne and Lafourche parishes highlighted in south Louisiana" style="width:100%;height:auto;display:block;" />
+        </div>
         <p class="map-note">
           Primary coverage: <strong>Terrebonne Parish</strong> and <strong>Lafourche Parish</strong>.
         </p>
@@ -333,7 +331,6 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

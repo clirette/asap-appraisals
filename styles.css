@@ -387,14 +387,14 @@ p:last-child { margin-bottom: 0; }
    SERVICE AREA MAP
    =========================== */
 .service-map {
-  height: 440px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--light-gray);
   box-shadow: var(--shadow-sm);
-  margin-bottom: 1.25rem;
-  isolation: isolate;
-  background: var(--light-gray);
+  margin: 0 auto 1.25rem;
+  background: #b0cfe0;
+  line-height: 0;
+  max-width: 620px;
 }
 .map-note {
   font-size: 0.9rem;
