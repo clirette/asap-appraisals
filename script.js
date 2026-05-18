@@ -1,18 +1,39 @@
-﻿// Footer year
+// Footer year
 const yr = document.getElementById('year');
 if (yr) yr.textContent = new Date().getFullYear();
 
-// Smooth scroll for all anchor links (offset for fixed nav)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    const id = anchor.getAttribute('href');
+// RAF-based smooth scroll with navbar offset
+function smoothScrollTo(targetY, duration) {
+  duration = duration || 650;
+  var startY = window.scrollY;
+  var distance = targetY - startY;
+  var startTime = null;
+
+  function ease(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var elapsed = timestamp - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + distance * ease(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    var id = anchor.getAttribute('href');
     if (id === '#') return;
-    const target = document.querySelector(id);
+    var target = document.querySelector(id);
     if (target) {
       e.preventDefault();
-      const navH = document.querySelector('.navbar')?.offsetHeight || 72;
-      const top = target.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({ top, behavior: 'smooth' });
+      var navH = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 72;
+      var top = target.getBoundingClientRect().top + window.scrollY - navH;
+      smoothScrollTo(top);
     }
   });
 });
@@ -57,18 +78,20 @@ if (mapEl && typeof L !== 'undefined') {
     maxZoom: 18
   }).addTo(map);
 
-  // TODO: Replace these example coordinates with your real service area boundary.
-  // const serviceAreaCoords = [
-  //   [29.70, -90.90],
-  //   [29.70, -90.55],
-  //   [29.45, -90.55],
-  //   [29.45, -90.90],
-  // ];
-  //
-  // L.polygon(serviceAreaCoords, {
-  //   color:       '#1b2d50',
-  //   fillColor:   '#1b2d50',
-  //   fillOpacity: 0.15,
-  //   weight:      2
-  // }).addTo(map).bindPopup('ASAP Appraisals Service Area');
+  const serviceAreaCoords = [
+    [29.8332491, -90.9258397],
+    [29.5544071, -90.9014778],
+    [29.4165705, -90.7505142],
+    [29.512791,  -90.4904801],
+    [29.6793975, -90.5039867],
+    [29.7974409, -90.6275221],
+    [29.8332491, -90.9258397],
+  ];
+
+  L.polygon(serviceAreaCoords, {
+    color:       '#1b2d50',
+    fillColor:   '#1b2d50',
+    fillOpacity: 0.15,
+    weight:      2
+  }).addTo(map).bindPopup('ASAP Appraisals Service Area');
 }
