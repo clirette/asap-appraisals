@@ -160,6 +160,10 @@ p:last-child { margin-bottom: 0; }
   padding: 7rem var(--gutter) 5rem;
   background-color: var(--navy);
   background-image: url('assets/hero.jpg');
+  background-image: image-set(
+    url('assets/hero.webp') type('image/webp'),
+    url('assets/hero.jpg') type('image/jpeg')
+  );
   background-size: cover;
   background-position: center;
   color: var(--white);
