@@ -468,6 +468,39 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ===========================
+   FAQ
+   =========================== */
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+.faq-item:first-child { border-top: 1px solid var(--light-gray); }
+
+.faq-q {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 0.65rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--gold);
+}
+
+.faq-a {
+  color: var(--text-mid);
+  font-size: 0.97rem;
+  line-height: 1.75;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+/* ===========================
    FOOTER
    =========================== */
 .site-footer { background: var(--navy-dark); color: rgba(255,255,255,0.55); padding: 2.25rem 0; }
